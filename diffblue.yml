@@ -1,0 +1,897 @@
+# Tested on Deeptest release 1.12.0
+cbmcArguments:
+  java-generate-no-comments: true
+phases:
+-
+  timeout: 60
+  cbmcArguments:
+    max-nondet-array-length: 10
+    unwind: 1
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 10
+    unwind: 1
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 20
+    unwind: 2
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models-simple-overlay.jar:/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 60
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 4
+    load-containing-class-only: true
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 50
+    max-nondet-string-length: 50
+    unwind: 4
+    load-containing-class-only: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 130
+    max-nondet-string-length: 110
+    unwind: 10
+    string-non-empty: true
+    java-assume-inputs-non-null: true
+-
+  timeout: 120
+  cbmcArguments:
+    classpath: '/tools/cbmc/models.jar:.'
+    max-nondet-array-length: 300
+    max-nondet-string-length: 100
+    unwind: 10
+units:
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/network/replicator/ReplicatorSinkProcessor.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/replicator/ReplicatorSinkProcessor.java
+    # Child of ReplicatorSinkProcessor.class
+    - dir: target/classes
+      file: com/iota/iri/network/TCPNeighbor.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/TCPNeighbor.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/BundleValidator.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/BundleValidator.java
+    # Child of BundleValidator.class
+    - dir: target/classes
+      file: com/iota/iri/controllers/TransactionViewModel.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/controllers/TransactionViewModel.java
+    # Child of BundleValidator.class
+    - dir: target/classes
+      file: com/iota/iri/model/Hash.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/Hash.java
+    # Child of BundleValidator.class
+    - dir: target/classes
+      file: com/iota/iri/service/snapshot/Snapshot.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/snapshot/Snapshot.java
+    # Child of BundleValidator.class
+    - dir: target/classes
+      file: com/iota/iri/storage/Tangle.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/storage/Tangle.java
+    # Child of BundleValidator.class
+    - dir: target/classes
+      file: com/iota/iri/utils/Converter.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/Converter.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/ledger/impl/LedgerServiceImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/ledger/impl/LedgerServiceImpl.java
+    # Child of LedgerServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/BundleValidator.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/BundleValidator.java
+    # Child of LedgerServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/controllers/MilestoneViewModel.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/controllers/MilestoneViewModel.java
+    # Child of LedgerServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/controllers/StateDiffViewModel.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/controllers/StateDiffViewModel.java
+    # Child of LedgerServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/ledger/LedgerException.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/ledger/LedgerException.java
+    # Child of LedgerServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/ledger/LedgerService.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/ledger/LedgerService.java
+    # Child of LedgerServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/milestone/MilestoneService.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/milestone/MilestoneService.java
+    # Child of LedgerServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/snapshot/SnapshotException.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/snapshot/SnapshotException.java
+    # Child of LedgerServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/snapshot/SnapshotProvider.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/snapshot/SnapshotProvider.java
+    # Child of LedgerServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/snapshot/SnapshotService.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/snapshot/SnapshotService.java
+    # Child of LedgerServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/snapshot/impl/SnapshotStateDiffImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/snapshot/impl/SnapshotStateDiffImpl.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/network/replicator/ReplicatorSourceProcessor.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/replicator/ReplicatorSourceProcessor.java
+    # Child of ReplicatorSourceProcessor.class
+    - dir: target/classes
+      file: com/iota/iri/conf/MainnetConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/MainnetConfig.java
+    # Child of ReplicatorSourceProcessor.class
+    - dir: target/classes
+      file: com/iota/iri/conf/TestnetConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/TestnetConfig.java
+    # Child of ReplicatorSourceProcessor.class
+    - dir: target/classes
+      file: com/iota/iri/network/Neighbor.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/Neighbor.java
+    # Child of ReplicatorSourceProcessor.class
+    - dir: target/classes
+      file: com/iota/iri/network/Node.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/Node.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/network/Node.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/Node.java
+    # Child of Node.class
+    - dir: target/classes
+      file: com/iota/iri/TransactionValidator.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/TransactionValidator.java
+    # Child of Node.class
+    - dir: target/classes
+      file: com/iota/iri/conf/NodeConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/NodeConfig.java
+    # Child of Node.class
+    - dir: target/classes
+      file: com/iota/iri/controllers/TipsViewModel.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/controllers/TipsViewModel.java
+    # Child of Node.class
+    - dir: target/classes
+      file: com/iota/iri/crypto/SpongeFactory.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/SpongeFactory.java
+    # Child of Node.class
+    - dir: target/classes
+      file: com/iota/iri/model/HashFactory.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/HashFactory.java
+    # Child of Node.class
+    - dir: target/classes
+      file: com/iota/iri/model/TransactionHash.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/TransactionHash.java
+    # Child of Node.class
+    - dir: target/classes
+      file: com/iota/iri/service/milestone/LatestMilestoneTracker.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/milestone/LatestMilestoneTracker.java
+    # Child of Node.class
+    - dir: target/classes
+      file: com/iota/iri/zmq/MessageQ.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/zmq/MessageQ.java
+  - target:
+    - dir: target/test-classes
+      file: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_deleteBatch_jmhTest.class
+      sourceDir: target/generated-test-sources/test-annotations
+      sourceFile: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_deleteBatch_jmhTest.java
+    # Child of RocksDbBenchmark_deleteBatch_jmhTest.class
+    - dir: target/test-classes
+      file: com/iota/iri/benchmarks/dbbenchmark/states/generated/FullState_jmhType.class
+      sourceDir: target/generated-test-sources/test-annotations
+      sourceFile: com/iota/iri/benchmarks/dbbenchmark/states/generated/FullState_jmhType.java
+    # Child of RocksDbBenchmark_deleteBatch_jmhTest.class
+    - dir: target/test-classes
+      file: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_jmhType.class
+      sourceDir: target/generated-test-sources/test-annotations
+      sourceFile: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_jmhType.java
+  - target:
+    - dir: target/test-classes
+      file: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_dropAll_jmhTest.class
+      sourceDir: target/generated-test-sources/test-annotations
+      sourceFile: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_dropAll_jmhTest.java
+  - target:
+    - dir: target/test-classes
+      file: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_fetchOneByOne_jmhTest.class
+      sourceDir: target/generated-test-sources/test-annotations
+      sourceFile: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_fetchOneByOne_jmhTest.java
+  - target:
+    - dir: target/test-classes
+      file: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_deleteOneByOne_jmhTest.class
+      sourceDir: target/generated-test-sources/test-annotations
+      sourceFile: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_deleteOneByOne_jmhTest.java
+  - target:
+    - dir: target/test-classes
+      file: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_persistOneByOne_jmhTest.class
+      sourceDir: target/generated-test-sources/test-annotations
+      sourceFile: com/iota/iri/benchmarks/dbbenchmark/generated/RocksDbBenchmark_persistOneByOne_jmhTest.java
+    # Child of RocksDbBenchmark_persistOneByOne_jmhTest.class
+    - dir: target/test-classes
+      file: com/iota/iri/benchmarks/dbbenchmark/states/generated/EmptyState_jmhType.class
+      sourceDir: target/generated-test-sources/test-annotations
+      sourceFile: com/iota/iri/benchmarks/dbbenchmark/states/generated/EmptyState_jmhType.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/crypto/PearlDiver.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/PearlDiver.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/utils/dag/DAGHelper.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/dag/DAGHelper.java
+    # Child of DAGHelper.class
+    - dir: target/classes
+      file: com/iota/iri/controllers/ApproveeViewModel.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/controllers/ApproveeViewModel.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/network/UDPReceiver.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/UDPReceiver.java
+    # Child of UDPReceiver.class
+    - dir: target/classes
+      file: com/iota/iri/crypto/Sponge.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/Sponge.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/milestone/impl/MilestoneServiceImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/milestone/impl/MilestoneServiceImpl.java
+    # Child of MilestoneServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/conf/ConsensusConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/ConsensusConfig.java
+    # Child of MilestoneServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/crypto/Curl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/Curl.java
+    # Child of MilestoneServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/crypto/ISS.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/ISS.java
+    # Child of MilestoneServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/crypto/ISSInPlace.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/ISSInPlace.java
+    # Child of MilestoneServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/model/StateDiff.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/StateDiff.java
+    # Child of MilestoneServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/milestone/MilestoneException.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/milestone/MilestoneException.java
+    # Child of MilestoneServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/milestone/MilestoneValidity.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/milestone/MilestoneValidity.java
+    # Child of MilestoneServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/utils/dag/DAGHelper.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/dag/DAGHelper.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/TipsSolidifier.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/TipsSolidifier.java
+    # Child of TipsSolidifier.class
+    - dir: target/classes
+      file: com/iota/iri/conf/SolidificationConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/SolidificationConfig.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/crypto/ISSInPlace.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/ISSInPlace.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/storage/Tangle.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/storage/Tangle.java
+    # Child of Tangle.class
+    - dir: target/classes
+      file: com/iota/iri/utils/Pair.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/Pair.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/network/replicator/ReplicatorSourcePool.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/replicator/ReplicatorSourcePool.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/spentaddresses/impl/SpentAddressesServiceImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/spentaddresses/impl/SpentAddressesServiceImpl.java
+    # Child of SpentAddressesServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/conf/MilestoneConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/MilestoneConfig.java
+    # Child of SpentAddressesServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/controllers/AddressViewModel.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/controllers/AddressViewModel.java
+    # Child of SpentAddressesServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/spentaddresses/SpentAddressesException.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/spentaddresses/SpentAddressesException.java
+    # Child of SpentAddressesServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/spentaddresses/SpentAddressesProvider.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/spentaddresses/SpentAddressesProvider.java
+    # Child of SpentAddressesServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/spentaddresses/SpentAddressesService.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/spentaddresses/SpentAddressesService.java
+    # Child of SpentAddressesServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/TailFinder.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/TailFinder.java
+    # Child of SpentAddressesServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/impl/TailFinderImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/impl/TailFinderImpl.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/API.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/API.java
+    # Child of API.class
+    - dir: target/classes
+      file: com/iota/iri/IRI.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/IRI.java
+    # Child of API.class
+    - dir: target/classes
+      file: com/iota/iri/IXI.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/IXI.java
+    # Child of API.class
+    - dir: target/classes
+      file: com/iota/iri/Iota.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/Iota.java
+    # Child of API.class
+    - dir: target/classes
+      file: com/iota/iri/conf/APIConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/APIConfig.java
+    # Child of API.class
+    - dir: target/classes
+      file: com/iota/iri/crypto/PearlDiver.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/PearlDiver.java
+    # Child of API.class
+    - dir: target/classes
+      file: com/iota/iri/model/persistables/Transaction.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/persistables/Transaction.java
+    # Child of API.class
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/TipSelector.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/TipSelector.java
+    # Child of API.class
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/impl/WalkValidatorImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/impl/WalkValidatorImpl.java
+    # Child of API.class
+    - dir: target/classes
+      file: com/iota/iri/utils/IotaIOUtils.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/IotaIOUtils.java
+    # Child of API.class
+    - dir: target/classes
+      file: com/iota/iri/utils/MapIdentityManager.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/MapIdentityManager.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/snapshot/impl/SnapshotProviderImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/snapshot/impl/SnapshotProviderImpl.java
+    # Child of SnapshotProviderImpl.class
+    - dir: target/classes
+      file: com/iota/iri/SignedFiles.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/SignedFiles.java
+    # Child of SnapshotProviderImpl.class
+    - dir: target/classes
+      file: com/iota/iri/conf/SnapshotConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/SnapshotConfig.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/transactionpruning/jobs/MilestonePrunerJob.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/transactionpruning/jobs/MilestonePrunerJob.java
+    # Child of MilestonePrunerJob.class
+    - dir: target/classes
+      file: com/iota/iri/model/IntegerIndex.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/IntegerIndex.java
+    # Child of MilestonePrunerJob.class
+    - dir: target/classes
+      file: com/iota/iri/model/persistables/Milestone.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/persistables/Milestone.java
+    # Child of MilestonePrunerJob.class
+    - dir: target/classes
+      file: com/iota/iri/service/transactionpruning/TransactionPrunerJobStatus.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/transactionpruning/TransactionPrunerJobStatus.java
+    # Child of MilestonePrunerJob.class
+    - dir: target/classes
+      file: com/iota/iri/service/transactionpruning/TransactionPruningException.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/transactionpruning/TransactionPruningException.java
+    # Child of MilestonePrunerJob.class
+    - dir: target/classes
+      file: com/iota/iri/storage/Indexable.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/storage/Indexable.java
+    # Child of MilestonePrunerJob.class
+    - dir: target/classes
+      file: com/iota/iri/storage/Persistable.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/storage/Persistable.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/network/replicator/ReplicatorSinkPool.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/replicator/ReplicatorSinkPool.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/snapshot/impl/SnapshotServiceImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/snapshot/impl/SnapshotServiceImpl.java
+    # Child of SnapshotServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/transactionpruning/TransactionPruner.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/transactionpruning/TransactionPruner.java
+    # Child of SnapshotServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/transactionpruning/jobs/MilestonePrunerJob.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/transactionpruning/jobs/MilestonePrunerJob.java
+    # Child of SnapshotServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/transactionpruning/jobs/UnconfirmedSubtanglePrunerJob.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/transactionpruning/jobs/UnconfirmedSubtanglePrunerJob.java
+    # Child of SnapshotServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/utils/dag/TraversalException.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/dag/TraversalException.java
+    # Child of SnapshotServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/utils/log/ProgressLogger.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/log/ProgressLogger.java
+    # Child of SnapshotServiceImpl.class
+    - dir: target/classes
+      file: com/iota/iri/utils/log/interval/IntervalProgressLogger.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/log/interval/IntervalProgressLogger.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/IRI.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/IRI.java
+    # Child of IRI.class
+    - dir: target/classes
+      file: com/iota/iri/conf/BaseIotaConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/BaseIotaConfig.java
+    # Child of IRI.class
+    - dir: target/classes
+      file: com/iota/iri/conf/Config.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/Config.java
+    # Child of IRI.class
+    - dir: target/classes
+      file: com/iota/iri/conf/ConfigFactory.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/ConfigFactory.java
+    # Child of IRI.class
+    - dir: target/classes
+      file: com/iota/iri/conf/IotaConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/IotaConfig.java
+    # Child of IRI.class
+    - dir: target/classes
+      file: com/iota/iri/service/API.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/API.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/network/TransactionRequester.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/TransactionRequester.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/SignedFiles.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/SignedFiles.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/impl/WalkValidatorImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/impl/WalkValidatorImpl.java
+    # Child of WalkValidatorImpl.class
+    - dir: target/classes
+      file: com/iota/iri/conf/TipSelConfig.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/conf/TipSelConfig.java
+    # Child of WalkValidatorImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/WalkValidator.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/WalkValidator.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/utils/MapIdentityManager.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/MapIdentityManager.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/storage/rocksDB/RocksDBPersistenceProvider.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/storage/rocksDB/RocksDBPersistenceProvider.java
+    # Child of RocksDBPersistenceProvider.class
+    - dir: target/classes
+      file: com/iota/iri/storage/PersistenceProvider.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/storage/PersistenceProvider.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/utils/SlackBotFeed.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/SlackBotFeed.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/utils/IotaIOUtils.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/IotaIOUtils.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/model/AbstractHash.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/AbstractHash.java
+    # Child of AbstractHash.class
+    - dir: target/classes
+      file: com/iota/iri/model/safe/ByteSafe.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/safe/ByteSafe.java
+    # Child of AbstractHash.class
+    - dir: target/classes
+      file: com/iota/iri/model/safe/TritSafe.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/safe/TritSafe.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/IXI.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/IXI.java
+    # Child of IXI.class
+    - dir: target/classes
+      file: com/iota/iri/service/CallableRequest.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/CallableRequest.java
+    # Child of IXI.class
+    - dir: target/classes
+      file: com/iota/iri/service/dto/AbstractResponse.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/dto/AbstractResponse.java
+    # Child of IXI.class
+    - dir: target/classes
+      file: com/iota/iri/service/dto/ErrorResponse.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/dto/ErrorResponse.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/transactionpruning/jobs/UnconfirmedSubtanglePrunerJob.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/transactionpruning/jobs/UnconfirmedSubtanglePrunerJob.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/impl/CumulativeWeightCalculator.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/impl/CumulativeWeightCalculator.java
+    # Child of CumulativeWeightCalculator.class
+    - dir: target/classes
+      file: com/iota/iri/model/HashId.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/HashId.java
+    # Child of CumulativeWeightCalculator.class
+    - dir: target/classes
+      file: com/iota/iri/model/HashPrefix.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/HashPrefix.java
+    # Child of CumulativeWeightCalculator.class
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/RatingCalculator.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/RatingCalculator.java
+    # Child of CumulativeWeightCalculator.class
+    - dir: target/classes
+      file: com/iota/iri/utils/collections/impl/TransformingBoundedHashSet.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/collections/impl/TransformingBoundedHashSet.java
+    # Child of CumulativeWeightCalculator.class
+    - dir: target/classes
+      file: com/iota/iri/utils/collections/impl/TransformingMap.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/collections/impl/TransformingMap.java
+    # Child of CumulativeWeightCalculator.class
+    - dir: target/classes
+      file: com/iota/iri/utils/collections/interfaces/BoundedSet.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/collections/interfaces/BoundedSet.java
+    # Child of CumulativeWeightCalculator.class
+    - dir: target/classes
+      file: com/iota/iri/utils/collections/interfaces/UnIterableMap.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/collections/interfaces/UnIterableMap.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/impl/TipSelectorImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/impl/TipSelectorImpl.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/transactionpruning/async/MilestonePrunerJobQueue.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/transactionpruning/async/MilestonePrunerJobQueue.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/impl/TailFinderImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/impl/TailFinderImpl.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/spentaddresses/impl/SpentAddressesProviderImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/spentaddresses/impl/SpentAddressesProviderImpl.java
+    # Child of SpentAddressesProviderImpl.class
+    - dir: target/classes
+      file: com/iota/iri/model/persistables/SpentAddress.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/persistables/SpentAddress.java
+    # Child of SpentAddressesProviderImpl.class
+    - dir: target/classes
+      file: com/iota/iri/storage/rocksDB/RocksDBPersistenceProvider.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/storage/rocksDB/RocksDBPersistenceProvider.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/crypto/Kerl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/Kerl.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/crypto/Curl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/Curl.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/model/persistables/Transaction.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/model/persistables/Transaction.java
+    # Child of Transaction.class
+    - dir: target/classes
+      file: com/iota/iri/utils/Serializer.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/Serializer.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/utils/thread/BoundedScheduledExecutorService.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/thread/BoundedScheduledExecutorService.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/TransactionValidator.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/TransactionValidator.java
+    # Child of TransactionValidator.class
+    - dir: target/classes
+      file: com/iota/iri/network/TransactionRequester.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/TransactionRequester.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/tipselection/impl/RatingOne.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/tipselection/impl/RatingOne.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/network/TCPNeighbor.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/TCPNeighbor.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/crypto/ISS.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/crypto/ISS.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/service/milestone/impl/LatestMilestoneTrackerImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/milestone/impl/LatestMilestoneTrackerImpl.java
+    # Child of LatestMilestoneTrackerImpl.class
+    - dir: target/classes
+      file: com/iota/iri/service/milestone/MilestoneSolidifier.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/milestone/MilestoneSolidifier.java
+    # Child of LatestMilestoneTrackerImpl.class
+    - dir: target/classes
+      file: com/iota/iri/utils/log/interval/IntervalLogger.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/log/interval/IntervalLogger.java
+    # Child of LatestMilestoneTrackerImpl.class
+    - dir: target/classes
+      file: com/iota/iri/utils/thread/DedicatedScheduledExecutorService.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/thread/DedicatedScheduledExecutorService.java
+    # Child of LatestMilestoneTrackerImpl.class
+    - dir: target/classes
+      file: com/iota/iri/utils/thread/SilentScheduledExecutorService.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/utils/thread/SilentScheduledExecutorService.java
+  - target:
+    - dir: target/classes
+      file: com/iota/iri/Iota.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/Iota.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/network/UDPReceiver.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/UDPReceiver.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/network/impl/TransactionRequesterWorkerImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/impl/TransactionRequesterWorkerImpl.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/network/replicator/Replicator.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/network/replicator/Replicator.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/service/TipsSolidifier.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/TipsSolidifier.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/service/ledger/impl/LedgerServiceImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/ledger/impl/LedgerServiceImpl.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/service/snapshot/impl/LocalSnapshotManagerImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/snapshot/impl/LocalSnapshotManagerImpl.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/service/snapshot/impl/SnapshotProviderImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/snapshot/impl/SnapshotProviderImpl.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/service/snapshot/impl/SnapshotServiceImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/snapshot/impl/SnapshotServiceImpl.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/service/spentaddresses/impl/SpentAddressesProviderImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/spentaddresses/impl/SpentAddressesProviderImpl.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/service/spentaddresses/impl/SpentAddressesServiceImpl.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/spentaddresses/impl/SpentAddressesServiceImpl.java
+    # Child of Iota.class
+    - dir: target/classes
+      file: com/iota/iri/service/transactionpruning/async/AsyncTransactionPruner.class
+      sourceDir: src/main/java
+      sourceFile: com/iota/iri/service/transactionpruning/async/AsyncTransactionPruner.java
